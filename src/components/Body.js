@@ -18,13 +18,14 @@ const Body = ({user}) => {
       getData();
     }, []);
     async function getData() {
+      
       const url = await fetch(
-        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6295538&lng=77.0801899&page_type=DESKTOP_WEB_LISTING"
+        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6295538&lng=77.0801899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
       const json = await url.json();
-      console.log(json?.data?.cards[2]?.data?.data?.cards);
-      setAllRestaurents(json?.data?.cards[2]?.data?.data?.cards);
-      setFilteredRestaurents(json?.data?.cards[2]?.data?.data?.cards);
+      console.log(json);
+      setAllRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWiyhStyle?.restaurants);
+      setFilteredRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWiyhStyle?.restaurants);
     }
     const isonline = useOnline();
     if(!isonline){

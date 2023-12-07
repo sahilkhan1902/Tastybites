@@ -1,9 +1,10 @@
 {
   "name": "y",
   "version": "1.0.0",
-  "main": "app.js",
+  "source": "index.html",
   "scripts": {
     "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Sahil Khan",

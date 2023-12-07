@@ -590,6 +590,6 @@ export const restrauList =[
       },
 ]
 
-export const Linkedin_Link = "https://www.linkedin.com/in/sahil-khan1902/";
-export const Github_Link = "https://github.com/sahilkhan-2002";
+export const Linkedin_Link = "https://www.linkedin.com/in/sahilkhan1902/";
+export const Github_Link = "https://github.com/sahilkhan1902";
 export const Email_Link = "mailto:sahilkhan2002786@gmail.com";
