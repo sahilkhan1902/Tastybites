@@ -7,9 +7,10 @@ const RestaurentCard = ({
     cuisines,
     avgRating,
     cloudinaryImageId,
-    slaString,
-    costForTwoString,
+    sla,
+    costForTwo,
     aggregatedDiscountInfo,
+    
     // user
   }) => {
     const myInfo= useContext(UserContext)
@@ -35,9 +36,9 @@ const RestaurentCard = ({
             </span>
           </div>
           <div className="w-[4px] h-[4px] rounded-full bg-black"></div>
-          <span className="">{slaString} AWAY</span>
+          <span className="">{sla.slaString} AWAY</span>
           <div className="w-[4px] h-[4px] rounded-full bg-black"></div>
-          <span className="">{costForTwoString}</span>
+          <span className="">{costForTwo}</span>
         </div>
         <div className="flex border-t pt-4 gap-2 font-semibold">
           <img src={offerImg} alt="" className="h-6" />
