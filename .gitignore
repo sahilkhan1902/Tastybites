@@ -1,8 +1,17 @@
-node_modules
+# Dependency directories
+node_modules/
 
+# Parcel cache
 .parcel-cache/
 
-.vscode/
-       
+# Build output
 dist/
+
+# VS Code settings
+.vscode/
+
+# Optional: OS-specific files
+.DS_Store
+Thumbs.db
+
        
