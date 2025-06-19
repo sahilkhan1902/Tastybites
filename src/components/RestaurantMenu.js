@@ -15,12 +15,11 @@ const RestaurentMenu = () => {
     dispatch(addItem(item));
     toast.success("Food item added")
   }
-  console.log(resMenu, "res")
   return !resMenu ? (
     <ShimmerMenu />
   ) : (
     <div className="flex flex-col w-[80%] md:w-2/3 p-4 border m-auto">
-      <div className="flex flex-col justify-between pb-4 border-b md:flex-row gap-3">
+      {/* <div className="flex flex-col justify-between pb-4 border-b md:flex-row gap-3">
         <div className="flex flex-col text-xs text-[#535665] font-medium gap-1">
           <span className="text-xl font-bold text-black">
             {resMenu?.cards[0]?.card?.card?.info?.name}
@@ -42,12 +41,14 @@ const RestaurentMenu = () => {
             {resMenu?.cards[0]?.card?.card?.info?.feeDetails?.message}
           </span>
         </div>
-        <img // src={LOGO + item?.card?.info?.imageId}
+         <img // src={LOGO + item?.card?.info?.imageId}
           className="w-56 h-36 rounded"
-          src={LOGO + resMenu?.cards[0]?.card?.card?.info?.imageId}
-          alt=""
+src={resMenu?.cards[0]?.card?.card?.info?.imageId
+  ? LOGO + resMenu.cards[0].card.card.info.imageId
+  : "https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg"}
+          alt="restaurant logo"
         />
-      </div>
+      </div> */}
       <div className="flex gap-8 items-center border-b py-3 text-sm md:text-base">
         <div className="flex items-center gap-2 font-semibold">
           <svg
