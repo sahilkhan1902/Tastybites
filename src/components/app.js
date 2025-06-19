@@ -16,6 +16,7 @@ import Profile from "./profile";
 import { Provider } from "react-redux"
 import store from "../utils/Store";
 import UserContext from "../utils/UserContext";
+import { Toaster } from "react-hot-toast";
 // import UserContext from "../utils/UserContext";
 const Instamart = lazy(()=> import("./Instamart"))
 
@@ -28,6 +29,7 @@ const AppLayout =()=>{
                 <Header/>
                 <Outlet/>
                 <Footer/>
+                <Toaster/>
         </UserContext.Provider>
         </Provider>
     )

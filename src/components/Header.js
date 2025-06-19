@@ -22,7 +22,13 @@ const Header = () => {
           <li><Link to="/" className=" hover:text-orange-900 hover:bg-gray-200 hover:rounded-full px-1  transition-all duration-300 ease-in-out ">Home</Link></li>
                 <li><Link to="/about" className=" hover:text-orange-900 hover:bg-gray-200 hover:rounded-full px-1  transition-all duration-300 ease-in-out">About</Link></li>
                 <li><Link to="/contact" className=" hover:text-orange-900 hover:bg-gray-200 hover:rounded-full px-1  transition-all duration-300 ease-in-out">Contact</Link></li>
-                <li><Link to="/cart" className="relative "><i className="fa-solid fa-cart-shopping"><span className="absolute top-[-8px] right-[-12px] bg-white text-yellow-400 w-4 p-1  h-4 rounded-full text-[10px] flex justify-center items-center" data-testid="cart">{cartItems.length}</span></i></Link></li>
+                <li><Link to="/cart" className="relative "><i className="fa-solid fa-cart-shopping"> {
+                    cartItems.length > 0 &&
+                    <span
+                    className="absolute -top-1 -right-2 bg-orange-900 text-xs w-4 h-4 flex 
+                    justify-center items-center animate-bounce rounded-full text-white" 
+                    >{cartItems.length}</span>
+                  }</i></Link></li>
                 {/* <li><Link to="/instamart" className=" hover:text-orange-400 transition-all duration-300 ease-in-out">Instamart</Link></li> */}
           </ul>
          

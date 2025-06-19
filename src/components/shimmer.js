@@ -2,19 +2,20 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Shimmer = () => {
+  const numberOfShimmers = 20;
+
+  // Create an array with the desired length
+  const shimmerArray = Array.from({ length: numberOfShimmers }, (_, index) => index);
+
   return (
-    <div className="flex flex-wrap gap-4 py-2 m-auto ">
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
+    <div className="flex flex-wrap gap-4 py-2 m-auto justify-evenly">
+      {shimmerArray.map((_, index) => (
+        <ShimmerCard key={index} />
+      ))}
     </div>
   );
 };
+
 const ShimmerCard = () => {
   return (
     <div className="flex flex-col gap-1 m-auto md:m-0">

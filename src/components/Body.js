@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
+import { ect, useState } from "react";
 import { restrauList } from "../components/constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
-import { filterData, filterdata } from "../utils/helper";
+import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 
 const Body = () => {
-  // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // use useEffect for one time call getRestaurants using empty dependency array
+
   useEffect(() => {
     getRestaurants();
   }, []);
 
   // async function getRestaurant to fetch Swiggy API data
   async function getRestaurants() {
-    // handle the error using try... catch
+
     try {
       const response = await fetch(
-        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6295538&lng=77.0801899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6295538&lng=77.0801899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6295538&lng=77.0801899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
       const json = await response.json();
 
@@ -61,7 +61,9 @@ const Body = () => {
       setFilteredRestaurants(filteredData);
       setErrorMessage("");
       if (filteredData?.length === 0) {
-        setErrorMessage("No matches restaurant found");
+        setErrorMessage(
+          `Sorry, we couldn't find any results for "${searchText}"`
+        );
       }
     } else {
       setErrorMessage("");
@@ -83,17 +85,17 @@ const Body = () => {
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
-              //   const fData = filterData(searchText,allRestaurents)
-              //  setFilteredRestaurents(fData)
+                // const fData = filterData(searchText,allRestaurants)
+                searchData(e.target.value, allRestaurants);
             }}
           />
           <button
             className="text-xs font-medium shadow-md px-2 py-2 outline-none  rounded bg-yellow-400 hover:bg-yellow-500 transition-all duration-200 ease-in-out text-white"
             onClick={() => {
               searchData(searchText, allRestaurants);
-              //  const fData = filterData(searchText,allRestaurents)
+              //  const fData = filterData(searchText,allRestaurants)
               //  console.log(fData)
-              //  setFilteredRestaurents(fData)
+              //  setFilteredRestaurants(fData)
             }}
           >
             Search
@@ -134,14 +136,15 @@ const Body = () => {
         {allRestaurants?.length === 0 ? (
           <Shimmer />
         ) : (
-          <div className="restaurant-list flex flex-row md:flex-row items-center md:flex-wrap gap-2 my-2 md:my-0">
-            {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+          <div className="restaurant-list flex flex-row md:flex-row items-center md:flex-wrap gap-2 my-2 md:my-0 justify-evenly">
+            
             {filteredRestaurants.map((restaurant) => {
               return (
-                <RestaurantCard
+                <Link
+                  to={"/restaurant/" + restaurant?.info?.id}
                   key={restaurant?.info?.id}
-                  {...restaurant?.info}
-                />
+                >  <RestaurantCard {...restaurant?.info} />
+                </Link>
               );
             })}
           </div>
