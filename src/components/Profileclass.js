@@ -13,7 +13,7 @@ class Profile extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch("https://api.github.com/users/sahilkhan-2002");
+    const response = await fetch("https://api.github.com/users/sahilkhan1902");
     const json = await response.json();
     this.setState({
       userinfor: {

@@ -1,6 +1,8 @@
 
 export const IMG_CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-
+export const MENU = "https://food-zone-backend-hz7e.onrender.com/api/menu/";
+export const LOGO =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 export const restrauList =[
     {
         "type": "restaurant",
@@ -590,6 +592,6 @@ export const restrauList =[
       },
 ]
 
-export const Linkedin_Link = "https://www.linkedin.com/in/sahil-khan1902/";
-export const Github_Link = "https://github.com/sahilkhan-2002";
+export const Linkedin_Link = "https://www.linkedin.com/in/sahilkhan1902/";
+export const Github_Link = "https://github.com/sahilkhan1902";
 export const Email_Link = "mailto:sahilkhan2002786@gmail.com";

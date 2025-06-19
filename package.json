@@ -1,9 +1,10 @@
 {
   "name": "y",
   "version": "1.0.0",
-  "main": "app.js",
+  "source": "index.html",
   "scripts": {
     "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Sahil Khan",
@@ -19,6 +20,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "react-loading-skeleton": "^3.3.1",
     "react-redux": "^8.1.1",

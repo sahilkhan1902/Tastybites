@@ -1,10 +1,11 @@
-import { IMG_CDN_URL } from "./constants";
+import { IMG_CDN_URL,LOGO } from "./constants";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShimmerMenu } from "./shimmer";
 import useRestaurant from "../Utils/useRestaurant";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/CartSlice"
+import { addItem } from "../utils/CartSlice";
+import { toast } from "react-hot-toast";
 const RestaurentMenu = () => {
   const resId = useParams();
   const { id } = resId;
@@ -12,7 +13,9 @@ const RestaurentMenu = () => {
   const dispatch = useDispatch();
   function addItemFunc(item) {
     dispatch(addItem(item));
+    toast.success("Food item added")
   }
+  console.log(resMenu, "res")
   return !resMenu ? (
     <ShimmerMenu />
   ) : (
@@ -39,9 +42,9 @@ const RestaurentMenu = () => {
             {resMenu?.cards[0]?.card?.card?.info?.feeDetails?.message}
           </span>
         </div>
-        <img
+        <img // src={LOGO + item?.card?.info?.imageId}
           className="w-56 h-36 rounded"
-          src={IMG_CDN_URL + resMenu?.cards[0]?.card?.card?.info?.cloudinaryImageId}
+          src={LOGO + resMenu?.cards[0]?.card?.card?.info?.imageId}
           alt=""
         />
       </div>
@@ -105,7 +108,7 @@ const RestaurentMenu = () => {
         )
       </h1>
       <div className="">
-        {(resMenu?.cards[resMenu?.cards.length -1]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards).map(
+        {(resMenu?.cards?.[resMenu?.cards.length -1]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards).map(
           (item) => {
             return (
               <div
@@ -138,7 +141,7 @@ const RestaurentMenu = () => {
                   <img
                     src={
                       item?.card?.info?.imageId
-                        ? IMG_CDN_URL + item?.card?.info?.imageId
+                        ? LOGO + item?.card?.info?.imageId
                         : "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/39cd5e4824e5c011ffaf56ddc39891e8"
                     }
                     alt=""
